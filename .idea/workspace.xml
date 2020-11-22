@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8cf55a47-577a-4374-8430-cdfad782440e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/service/calculator.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="0f771245-a1ff-49a8-b238-83cf9b4da51a" name="localhost" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3" />
+  <component name="ProjectId" id="1kTyRihny3HbHyl01Yc9tlsLVFJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PhpstormProjects/calculateur/index.php" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8cf55a47-577a-4374-8430-cdfad782440e" name="Default Changelist" comment="" />
+      <created>1605738869614</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605738869614</updated>
+      <workItem from="1605738870663" duration="793000" />
+      <workItem from="1605739688138" duration="5006000" />
+      <workItem from="1605744745053" duration="4723000" />
+      <workItem from="1606003641465" duration="1111000" />
+      <workItem from="1606004773201" duration="1315000" />
+      <workItem from="1606033597657" duration="10697000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="94" key="#CLI_Interpreters" timestamp="1606005923246">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="94" key="#CLI_Interpreters/0.0.1920.1040/1920.130.1024.728@0.0.1920.1040" timestamp="1606005923246" />
+    <state x="97" y="83" key="#PHP" timestamp="1606005926044">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="97" y="83" key="#PHP/0.0.1920.1040/1920.130.1024.728@0.0.1920.1040" timestamp="1606005926044" />
+    <state x="150" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605743867842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="150" y="208" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.130.1024.728@0.0.1920.1040" timestamp="1605743867842" />
+    <state x="206" y="220" key="FileChooserDialogImpl" timestamp="1605738945608">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="206" y="220" key="FileChooserDialogImpl/0.0.1920.1040/1920.130.1024.728@0.0.1920.1040" timestamp="1605738945608" />
+    <state x="285" y="427" key="NewPhpFileDialog" timestamp="1606036258621">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="285" y="427" key="NewPhpFileDialog/0.0.1920.1040/1920.130.1024.728@0.0.1920.1040" timestamp="1606036258621" />
+    <state x="47" y="110" width="1141" height="883" key="SettingsEditor" timestamp="1606005403782">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="47" y="110" width="1141" height="883" key="SettingsEditor/0.0.1920.1040/1920.130.1024.728@0.0.1920.1040" timestamp="1606005403782" />
+    <state x="152" y="112" width="704" height="502" key="dock-window-1" timestamp="1606004761504">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="152" y="112" width="704" height="502" key="dock-window-1/0.0.1920.1040/1920.130.1024.728@0.0.1920.1040" timestamp="1606004761504" />
+  </component>
+</project>

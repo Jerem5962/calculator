@@ -1,11 +1,36 @@
-input {
-    width: 25%;
+.bon {
+    background-color: lightgreen;
+}
+
+.moyen {
+    background-color: orange;
+}
+
+.mauvais {
+    background-color: indianred;
+}
+
+#calculator {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+#submit_form_calculator {
+    margin: 5px auto;
+    width: 50%;
+}
+
+.calculator-main {
+    margin: auto;
 }
 
 .control_panel {
-    max-width: 450px;
+    width: min-content;
     background-color: coral;
     padding: 20px;
+    border: blanchedalmond solid 1px;
 }
 
 .panel {
@@ -23,6 +48,7 @@ input {
     padding-left: 5px;
     padding-right: 5px;
     background-color: lightgrey;
+    text-align: center;
 }
 
 .panel_prix {
@@ -42,7 +68,7 @@ input {
 }
 
 .prix {
-    font-size: 1.4rem;
+    width: max-content;
     font-weight: bolder;
     margin-top: 5px;
     background-color: lightslategray;
@@ -50,4 +76,19 @@ input {
 
 .title_prix {
     margin-bottom: 5px;
+}
+
+.bilan {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.cashflow, .rendement {
+    width: 45%;
+}
+
+.descriptif span {
+    font-weight: bolder;
+    font-size: 1.2rem;
 }

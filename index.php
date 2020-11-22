@@ -15,7 +15,7 @@ include "service/calculator.php";
 
 <main>
     <div class="calculator-main">
-        <form action="/index.php" method="POST" name="calculator">
+        <form action="/index.php" method="POST" name="calculator" id="calculator">
 
             <section class="achat">
                 <div class="control_panel">
@@ -28,7 +28,7 @@ include "service/calculator.php";
                             </div>
                             <div class="panel_prix">
                                 <label for="notaire_input">Notaire</label>
-                                <input type="number" value="<?= $notaire ?>" name="notaire" id="notaire_input">
+                                <input type="number" value="<?= round($notaire, 2) ?>" name="notaire" id="notaire_input" disabled>
                             </div>
                             <div class="panel_prix">
                                 <label for="agence_input">Agence</label>
@@ -62,7 +62,7 @@ include "service/calculator.php";
                         <div class="achat">
                             <div class="panel_prix">
                                 <label for="credit_input">Crédit</label>
-                                <input type="number" value="<?= $depense ?>" name="credit" id="credit_input">
+                                <input type="number" value="<?= $creditAnnuel ?>" name="credit" id="credit_input" disabled>
                             </div>
                             <div class="panel_prix">
                                 <label for="charge_input">Charges</label>
@@ -70,11 +70,11 @@ include "service/calculator.php";
                             </div>
                             <div class="panel_prix">
                                 <label for="foncier_input">Foncier</label>
-                                <input type="number" value="<?= $foncier ?>" name="foncier" id="foncier_input">
+                                <input type="number" value="<?= $foncier ?>" name="foncier" id="foncier_input" disabled>
                             </div>
                             <div class="panel_prix">
                                 <label for="entretien_input">Entretien</label>
-                                <input type="number" value="<?= $entretien ?>" name="entretien" id="entretien_input">
+                                <input type="number" value="<?= $entretien ?>" name="entretien" id="entretien_input" disabled>
                             </div>
                             <div class="panel_prix">
                                 <label for="Assurance_input">Assurance</label>
@@ -104,7 +104,11 @@ include "service/calculator.php";
                             </div>
                             <div class="panel_prix">
                                 <label for="occupation_input">Occupation</label>
-                                <input type="number" value="<?= $occupation ?>" name="occupation" id="occupation_input">
+                                <select name="occupation" id="occupation_input">
+                                    <option value="10" <?php if ($occupation == 10){ ?>selected <?php } ?>>10</option>
+                                    <option value="11" <?php if ($occupation == 11){ ?>selected <?php } ?>>11</option>
+                                    <option value="12" <?php if ($occupation == 12){ ?>selected <?php } ?>>12</option>
+                                </select>
                             </div>
                             <div class="panel_prix">
                                 <label for="charge_locative_input">Charge locative</label>
@@ -116,7 +120,10 @@ include "service/calculator.php";
                                 total Revenu
                             </h3>
                             <p class="prix">
-                                <?= $totalRevenu ?> €
+                                <?= $totalRevenuMois ?> €/m
+                            </p>
+                            <p class="prix">
+                                <?= $totalRevenuAnnuel ?> €/a
                             </p>
                         </div>
                     </section>
@@ -133,39 +140,49 @@ include "service/calculator.php";
                                 <input type="float" value="<?= $taux ?>" name="taux" id="taux_input">
                             </div>
                             <div class="panel_prix">
-                                <label for="mensualite_input">Mensualité</label>
+                                <label for="mensualite_input">Mensualité (annee)</label>
                                 <input type="number" value="<?= $mensualite ?>" name="mensualite" id="mensualite_input">
                             </div>
                         </div>
                         <div class="panel_total">
                             <h3 class="title_prix">
-                                total Credit
+                                Credit
                             </h3>
                             <p class="prix">
-                                <?= $mensualiteMois ?> €
+                                <?= round($mensualiteMois, 2) ?> €/m
                             </p>
                         </div>
                     </section>
                 </div>
             </section>
-            <div>
-                <button type="submit">Valider</button>
-            </div>
+            <button type="submit" id="submit_form_calculator">Valider</button>
         </form>
     </div>
+    <div class="bilan">
+        <section class="cashflow">
+            <div class="panel_control">
+                <h2 class="title_panel">CashFlow</h2>
+                <section class="panel">
+                    <div class="descriptif">
+                        <p>revenu net/an <span><?= round($cashflowYears, 2) ?> €</span> </p>
+                        <p>revenu net/mois <span><?= round($cashflowMois, 2) ?> €</span></p>
+                    </div>
+                </section>
+            </div>
+        </section>
 
-    <section class="cashflow">
-        <div class="panel_control">
-            <h2 class="title_panel">CashFlow</h2>
-            <section class="panel">
-                <div class="">
-                    <p>revenu net/an <?= $cashflowYears ?> €</p>
-                    <p>revenu net/mois <?= round($cashflowMois, 2) ?> €</p>
-                </div>
-            </section>
-        </div>
-    </section>
-
+        <section class="rendement">
+            <div class="panel_control">
+                <h2 class="title_panel">Rendement</h2>
+                <section class="panel">
+                    <div class="descriptif">
+                        <p>Rendement brut <span class="<?php if ($rendementBrut > 6){?> bon <?php }?>"><?= round($rendementBrut,2) ?> %</span></p>
+                        <p>Rendement net <span class=""><?= round($rendementNet,2) ?> %</span></p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
 
 
 

@@ -187,8 +187,8 @@ include "service/calculator.php";
     <section class="amortissement">
         <div>
             <table class="table_amortissement">
-                <caption><button onclick="viewTableau()">Tableau d'amortissement</button></caption>
-                <tbody class="tableau">
+                <caption><button onclick="viewTableau('cacheTableau')">Tableau d'amortissement</button></caption>
+                <tbody id="cacheTableau">
                     <tr class="row">
                         <th>Nbr Echéances</th>
                         <th>Echéance</th>
@@ -222,10 +222,17 @@ include "service/calculator.php";
 </footer>
 <script>
     console.log('pret')
-    function viewTableau(){
-        tableau = document.getElementsByClassName('tableau')
-
-        console.log(tableau)
+    let cacher = true
+    function viewTableau(id){
+        element = document.getElementById(id)
+        if (cacher){
+            element.style.display='none'
+            cacher = false
+        } else {
+            element.style.display='block'
+            cacher = true
+        }
+        console.log(cacher)
     }
 </script>
 </body>

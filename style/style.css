@@ -1,3 +1,12 @@
+body {
+    margin: 0;
+    font-family: Sylfaen;
+}
+
+h1 {
+    text-align: center;
+}
+
 .bon {
     background-color: lightgreen;
 }
@@ -10,16 +19,24 @@
     background-color: indianred;
 }
 
+main {
+    background: linear-gradient(6deg,
+        rgb(187, 187, 68, 0.7),
+        rgb(187, 187, 153, 0.7),
+        rgb(187, 187, 221, 0.7));
+}
 #calculator {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
+    align-items: center;
 }
 
 #submit_form_calculator {
     margin: 5px auto;
     width: 50%;
+    height: 40px;
 }
 
 .calculator-main {
@@ -28,16 +45,14 @@
 
 .control_panel {
     width: min-content;
-    background-color: coral;
-    padding: 20px;
-    border: blanchedalmond solid 1px;
+    padding: 2px;
 }
 
 .panel {
     display: flex;
     justify-content: space-around;
     padding: 5px;
-    background-color: blanchedalmond;
+    background-color: rgb(187, 187, 119, 0.7);
 }
 
 .panel_total {
@@ -47,7 +62,7 @@
     align-items: center;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: lightgrey;
+    background-color: rgb(187, 187, 68, 0.6);
     text-align: center;
 }
 
@@ -65,13 +80,15 @@
 
 .title_panel {
     text-align: center;
+    margin: 2px;
 }
 
 .prix {
     width: max-content;
     font-weight: bolder;
+    padding: 1px;
     margin-top: 5px;
-    background-color: lightslategray;
+    background-color: rgb(187, 136, 102);
 }
 
 .title_prix {
@@ -81,14 +98,22 @@
 .bilan {
     display: flex;
     justify-content: space-around;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .cashflow, .rendement {
     width: 45%;
 }
 
+.descriptif {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .descriptif span {
     font-weight: bolder;
     font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 15px;
 }

@@ -1,7 +1,7 @@
 .amortissement {
-    width: 90%;
+    width: 40%;
     margin: 30px auto;
-    background-color: cornsilk;
+    background-color: rgb(187, 187, 119, 0.7);
 }
 
 .table_amortissement {
@@ -11,6 +11,7 @@
 .table_amortissement th {
     width: 10%;
     padding: 5px;
+    border-bottom: solid 1px black;
 }
 
 .table_amortissement td {
@@ -19,6 +20,5 @@
 
 .table_amortissement caption {
     padding: 15px;
-    border: solid 1px black;
 }
 

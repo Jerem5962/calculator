@@ -15,12 +15,13 @@ include "service/calculator.php";
 </header>
 
 <main>
+    <h1>Calculateur de crédit</h1>
     <section class="calculator-main">
         <form action="/index.php" method="POST" name="calculator" id="calculator">
 
             <section class="achat">
                 <div class="control_panel">
-                    <h2 class="title_panel">Calcul du coup d'achat</h2>
+                    <h2 class="title_panel">Calcul coup d'achat</h2>
                     <section class="panel">
                         <div class="info">
                             <div class="panel_prix">
@@ -177,8 +178,30 @@ include "service/calculator.php";
                 <h2 class="title_panel">Rendement</h2>
                 <section class="panel">
                     <div class="descriptif">
-                        <p>Rendement brut <span class="<?php if ($rendementBrut > 6){?> bon <?php }?>"><?= round($rendementBrut,2) ?> %</span></p>
-                        <p>Rendement net <span class=""><?= round($rendementNet,2) ?> %</span></p>
+                        <p>Rendement brut <span class="<?php
+                            if ($rendementBrut > 10){?>
+                                bon
+                            <?php
+                            } elseif ($rendementBrut <= 10 && $rendementBrut >= 6 ){?>
+                                moyen
+                            <?php
+                            } else {?>
+                                mauvais
+                            <?php
+                            }
+                            ?>"><?= round($rendementBrut,2) ?> %</span></p>
+                        <p>Rendement casi-net <span class="<?php
+                            if ($rendementNet > 6){?>
+                                bon
+                            <?php
+                            } elseif ($rendementNet <= 6 && $rendementNet >= 3 ){?>
+                                moyen
+                            <?php
+                            } else {?>
+                                mauvais
+                            <?php
+                            }
+                            ?>"><?= round($rendementNet,2) ?> %</span></p>
                     </div>
                 </section>
             </div>
@@ -187,10 +210,10 @@ include "service/calculator.php";
     <section class="amortissement">
         <div>
             <table class="table_amortissement">
-                <caption><button onclick="viewTableau('cacheTableau')">Tableau d'amortissement</button></caption>
-                <tbody id="cacheTableau">
+                <caption><button onclick="viewTableau('cacheTableau')">Voir le tableau d'amortissement</button></caption>
+                <tbody id="cacheTableau" style="display: none">
                     <tr class="row">
-                        <th>Nbr Echéances</th>
+                        <th>N°</th>
                         <th>Echéance</th>
                         <th>Intérêts</th>
                         <th>Capital</th>
@@ -226,10 +249,10 @@ include "service/calculator.php";
     function viewTableau(id){
         element = document.getElementById(id)
         if (cacher){
-            element.style.display='none'
+            element.style.display='block'
             cacher = false
         } else {
-            element.style.display='block'
+            element.style.display='none'
             cacher = true
         }
         console.log(cacher)

@@ -6,7 +6,8 @@ include "service/calculator.php";
 <head>
     <meta charset="UTF-8">
     <title>calculateur</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/tableauAmortissement.css">
 </head>
 <body>
 
@@ -14,7 +15,7 @@ include "service/calculator.php";
 </header>
 
 <main>
-    <div class="calculator-main">
+    <section class="calculator-main">
         <form action="/index.php" method="POST" name="calculator" id="calculator">
 
             <section class="achat">
@@ -48,7 +49,7 @@ include "service/calculator.php";
                                 total Achat
                             </h3>
                             <p class="prix">
-                                <?= $totalAchat ?> €
+                                <?= number_format($totalAchat,2, ",", " ") ?> €
                             </p>
                         </div>
                     </section>
@@ -86,7 +87,7 @@ include "service/calculator.php";
                                 total Cout Annuel
                             </h3>
                             <p class="prix">
-                                <?= $totalDepense ?> €
+                                <?= number_format($totalDepense, 2) ?> €
                             </p>
                         </div>
                     </section>
@@ -157,8 +158,8 @@ include "service/calculator.php";
             </section>
             <button type="submit" id="submit_form_calculator">Valider</button>
         </form>
-    </div>
-    <div class="bilan">
+    </section>
+    <section class="bilan">
         <section class="cashflow">
             <div class="panel_control">
                 <h2 class="title_panel">CashFlow</h2>
@@ -182,7 +183,36 @@ include "service/calculator.php";
                 </section>
             </div>
         </section>
-    </div>
+    </section>
+    <section class="amortissement">
+        <div>
+            <table class="table_amortissement">
+                <caption><button onclick="viewTableau()">Tableau d'amortissement</button></caption>
+                <tbody class="tableau">
+                    <tr class="row">
+                        <th>Nbr Echéances</th>
+                        <th>Echéance</th>
+                        <th>Intérêts</th>
+                        <th>Capital</th>
+                        <th>Restant dû</th>
+                    </tr>
+                    <?php
+                        foreach ($amortissement as $key => $data){?>
+
+                            <tr>
+                                <td><?= $key ?></td>
+                                <td><?= number_format($data['mensualite'],2, ',', ' ') ?></td>
+                                <td><?= number_format($data['interet'],2, ',', ' ') ?></td>
+                                <td><?= number_format($data['capital'],2, ',', ' ') ?></td>
+                                <td><?= number_format($data['restant'],2, ',', ' ') ?></td>
+                            </tr>
+
+                        <?php } ?>
+                </tbody>
+
+            </table>
+        </div>
+    </section>
 
 
 
@@ -192,6 +222,11 @@ include "service/calculator.php";
 </footer>
 <script>
     console.log('pret')
+    function viewTableau(){
+        tableau = document.getElementsByClassName('tableau')
+
+        console.log(tableau)
+    }
 </script>
 </body>
 </html>

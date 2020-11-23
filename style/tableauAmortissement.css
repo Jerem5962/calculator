@@ -1,0 +1,24 @@
+.amortissement {
+    width: 90%;
+    margin: 30px auto;
+    background-color: cornsilk;
+}
+
+.table_amortissement {
+    margin: auto;
+}
+
+.table_amortissement th {
+    width: 10%;
+    padding: 5px;
+}
+
+.table_amortissement td {
+    text-align: center;
+}
+
+.table_amortissement caption {
+    padding: 15px;
+    border: solid 1px black;
+}
+

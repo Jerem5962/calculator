@@ -1,10 +1,12 @@
 body {
     margin: 0;
     font-family: Sylfaen;
+    height: 100vh;
 }
 
 h1 {
     text-align: center;
+    margin: 0;
 }
 
 .bon {
@@ -40,7 +42,7 @@ main {
 }
 
 .calculator-main {
-    margin: auto;
+    margin: 3vh 13vh;
 }
 
 .control_panel {

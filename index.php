@@ -50,7 +50,7 @@ include "service/calculator.php";
                                 total Achat
                             </h3>
                             <p class="prix">
-                                <?= number_format($totalAchat,2, ",", " ") ?> €
+                                <?= $totalAchat ?> €
                             </p>
                         </div>
                     </section>
@@ -64,7 +64,7 @@ include "service/calculator.php";
                         <div class="achat">
                             <div class="panel_prix">
                                 <label for="credit_input">Crédit</label>
-                                <input type="number" value="<?= $creditAnnuel ?>" name="credit" id="credit_input" disabled>
+                                <input type="number" value="<?= round($creditAnnuel, 2)  ?>" name="credit" id="credit_input" disabled>
                             </div>
                             <div class="panel_prix">
                                 <label for="charge_input">Charges</label>
@@ -122,7 +122,10 @@ include "service/calculator.php";
                                 total Revenu
                             </h3>
                             <p class="prix">
-                                <?= $totalRevenuMois ?> €/m
+                                <?= $revenuMoisSansCharge ?> €
+                            </p>
+                            <p class="prix">
+                                <?= $totalRevenuMois ?> € CC
                             </p>
                             <p class="prix">
                                 <?= $totalRevenuAnnuel ?> €/a
@@ -190,7 +193,7 @@ include "service/calculator.php";
                             <?php
                             }
                             ?>"><?= round($rendementBrut,2) ?> %</span></p>
-                        <p>Rendement casi-net <span class="<?php
+                            <p>Rendement casi-net <span class="<?php
                             if ($rendementNet > 6){?>
                                 bon
                             <?php
@@ -207,8 +210,8 @@ include "service/calculator.php";
             </div>
         </section>
     </section>
-    <section class="amortissement">
-        <div>
+    <section class="panel_tableau">
+        <section class="amortissement">
             <table class="table_amortissement">
                 <caption><button onclick="viewTableau('cacheTableau')">Voir le tableau d'amortissement</button></caption>
                 <tbody id="cacheTableau" style="display: none">
@@ -234,7 +237,25 @@ include "service/calculator.php";
                 </tbody>
 
             </table>
-        </div>
+        </section>
+        <section class="impots">
+            <h2>Imposition</h2>
+            <form action="/" method="POST" name="revenu_fiscaux" id="revenu_fiscaux">
+                <div>
+                    <label for="revenu_foyer_mensuel">Revenu mensuel du foyer</label>
+                    <input type="number" name="revenu_foyer_mensuel" id="revenu_foyer_mensuel">
+                </div>
+                <div>
+                    <label for="nombre_de_part">Nombre de part</label>
+                    <input type="number" name="nombre_de_part" id="nombre_de_part">
+                </div>
+                <div>
+                    <label for="revenu_foncier">Revenu foncier</label>
+                    <input type="number" name="revenu_foncier" id="revenu_foncier" value="<?= $revenuMoisSansCharge * 12 ?>" disabled>
+                </div>
+                <button type="submit">Valider</button>
+            </form>
+        </section>
     </section>
 
 

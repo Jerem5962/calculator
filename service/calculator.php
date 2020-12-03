@@ -4,6 +4,7 @@ require_once 'service/data.php';
 // Revenu mensuel et annuel
 $totalRevenuMois = $loyerPercu + $chargeLocative;
 $totalRevenuAnnuel = ($totalRevenuMois) * $occupation;
+$revenuMoisSansCharge = $loyerPercu;
 
 //Calcul du foncier
 $foncier = $totalRevenuMois * (2/100) + $totalRevenuMois;
@@ -35,7 +36,7 @@ $cashflowYears = round(($totalRevenuAnnuel - $totalDepense), 2);
 $cashflowMois = ($cashflowYears) / 12;
 
 // Calcul du rendement brut et net
-$rendementBrut = (($loyerPercu * 12 * 100) / $totalAchat);
+$rendementBrut = ($loyerPercu * 12 / $totalAchat) * 100;
 $rendementNet = ($cashflowYears * 100) / $totalAchat;
 
 // Tableau d'amortissement
@@ -46,8 +47,9 @@ for ($i=1; $i <= $mensualite*12; $i++){
         'mensualite' => $mensualiteMois,
         'interet' => $interet = $totalAchat * $r,
         'capital' => $capital = $echeance - $interet,
-        'restant' => $totalAchat -= $capital
+        'restant' => $total = $totalAchat - $capital
     ];
 }
+
 
 

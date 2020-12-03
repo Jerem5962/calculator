@@ -6,8 +6,8 @@ include "service/calculator.php";
 <head>
     <meta charset="UTF-8">
     <title>calculateur</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/tableauAmortissement.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/tableauAmortissement.css">
 </head>
 <body>
 
@@ -50,7 +50,7 @@ include "service/calculator.php";
                                 total Achat
                             </h3>
                             <p class="prix">
-                                <?= $totalAchat ?> €
+                                <?= round($totalAchat, 2) ?> €
                             </p>
                         </div>
                     </section>
@@ -194,10 +194,10 @@ include "service/calculator.php";
                             }
                             ?>"><?= round($rendementBrut,2) ?> %</span></p>
                             <p>Rendement casi-net <span class="<?php
-                            if ($rendementNet > 6){?>
+                            if ($rendementNet > 1){?>
                                 bon
                             <?php
-                            } elseif ($rendementNet <= 6 && $rendementNet >= 3 ){?>
+                            } elseif ($rendementNet <= 1 && $rendementNet >= 0 ){?>
                                 moyen
                             <?php
                             } else {?>

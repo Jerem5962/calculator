@@ -42,12 +42,13 @@ $rendementNet = ($cashflowYears * 100) / $totalAchat;
 // Tableau d'amortissement
 $amortissement = [];
 $echeance = $mensualiteMois;
+$total = $totalAchat;
 for ($i=1; $i <= $mensualite*12; $i++){
     $amortissement[$i] = [
         'mensualite' => $mensualiteMois,
-        'interet' => $interet = $totalAchat * $r,
+        'interet' => $interet = $total * $r,
         'capital' => $capital = $echeance - $interet,
-        'restant' => $total = $totalAchat - $capital
+        'restant' => $total -= $capital
     ];
 }
 

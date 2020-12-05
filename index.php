@@ -148,6 +148,20 @@ include "service/calculator.php";
                                 <label for="mensualite_input">Mensualité (annee)</label>
                                 <input type="number" value="<?= $mensualite ?>" name="mensualite" id="mensualite_input">
                             </div>
+                            <div class="panel_prix">
+                                <label for="pourcentage_imposition">Votre taux d'imposition</label>
+                                <select name="pourcentage_imposition" id="pourcentage_imposition">
+                                    <option value="0"<?php if ($tauxImposition == 0){ ?>selected <?php } ?>>0%</option>
+                                    <option value="11"<?php if ($tauxImposition == 11){ ?>selected <?php } ?>>11%</option>
+                                    <option value="30"<?php if ($tauxImposition == 30){ ?>selected <?php } ?>>30%</option>
+                                    <option value="41"<?php if ($tauxImposition == 41){ ?>selected <?php } ?>>41%</option>
+                                    <option value="45"<?php if ($tauxImposition == 45){ ?>selected <?php } ?>>45%</option>
+                                </select>
+                            </div>
+                            <div class="panel_prix">
+                                <label for="moyenne_impot_input">Moyenne impôt Annuel</label>
+                                <input type="number" value="<?= round($moyenneImpotApayer, 2)  ?>" name="moyenne_impot_input" id="moyenne_impot_input" disabled>
+                            </div>
                         </div>
                         <div class="panel_total">
                             <h3 class="title_prix">
@@ -155,6 +169,9 @@ include "service/calculator.php";
                             </h3>
                             <p class="prix">
                                 <?= round($mensualiteMois, 2) ?> €/m
+                            </p>
+                            <p class="prix">
+                                <?= round($moyenneImpotApayer, 2) ?> €/A
                             </p>
                         </div>
                     </section>
@@ -205,6 +222,18 @@ include "service/calculator.php";
                             <?php
                             }
                             ?>"><?= round($rendementNet,2) ?> %</span></p>
+                            <p>Rendement net-net <span class="<?php
+                            if ($rendementNetNetAnnuel > 0.5){?>
+                                bon
+                            <?php
+                            } elseif ($rendementNetNetAnnuel <= 0.5 && $rendementNetNetAnnuel >= -0.5 ){?>
+                                moyen
+                            <?php
+                            } else {?>
+                                mauvais
+                            <?php
+                            }
+                            ?>"><?= round($rendementNetNetAnnuel,2) ?> %</span></p>
                     </div>
                 </section>
             </div>
@@ -240,25 +269,36 @@ include "service/calculator.php";
         </section>
         <section class="impots">
             <h2>Imposition</h2>
-            <form action="/" method="POST" name="revenu_fiscaux" id="revenu_fiscaux">
-                <div>
-                    <label for="revenu_foyer_mensuel">Revenu mensuel du foyer</label>
-                    <input type="number" name="revenu_foyer_mensuel" id="revenu_foyer_mensuel">
-                </div>
-                <div>
-                    <label for="nombre_de_part">Nombre de part</label>
-                    <input type="number" name="nombre_de_part" id="nombre_de_part">
-                </div>
-                <div>
-                    <label for="revenu_foncier">Revenu foncier</label>
-                    <input type="number" name="revenu_foncier" id="revenu_foncier" value="<?= $revenuMoisSansCharge * 12 ?>" disabled>
-                </div>
-                <button type="submit">Valider</button>
-            </form>
+
+            <table class="table_amortissement">
+                <tbody>
+                <tr class="row">
+                    <th>Année n°</th>
+                    <th>Revenu Annuel</th>
+                    <th>Intérêts</th>
+                    <th>A déclarer <br>
+                        (abt 30%)</th>
+                    <th>Imposition
+                    </th>
+
+                </tr>
+                <?php
+                foreach ($interetsAnnuels as $key => $data){ ?>
+                    <tr>
+                        <td><?= $key ?></td>
+                        <td><?= number_format($revenuMoisSansCharge * 12,2, ',', ' ') ?></td>
+                        <td><?= number_format($data,2, ',', ' ') ?></td>
+                        <td><?= number_format(($total = ($revenuMoisSansCharge * 12 - $data)*0.7),2, ',', ' ') ?></td>
+                        <td><?= number_format($impot = $total * ($tauxImposition/100),2, ',', ' ') ?></td>
+                    </tr>
+                <?php
+                }
+                ?>
+                </tbody>
+            </table>
+
         </section>
     </section>
-
-
 
 </main>
 

@@ -10,10 +10,7 @@
 }
 
 #revenu_fiscaux {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-end;
+
 }
 
 #revenu_fiscaux div {

@@ -43,6 +43,9 @@ $rendementNet = ($cashflowYears * 100) / $totalAchat;
 $amortissement = [];
 $echeance = $mensualiteMois;
 $total = $totalAchat;
+$memoDebut = 1;
+$memoPosition = 12;
+$interetsAnnuels = [];
 for ($i=1; $i <= $mensualite*12; $i++){
     $amortissement[$i] = [
         'mensualite' => $mensualiteMois,
@@ -50,7 +53,24 @@ for ($i=1; $i <= $mensualite*12; $i++){
         'capital' => $capital = $echeance - $interet,
         'restant' => $total -= $capital
     ];
+    $memoInteret += $interet;
+    $interetsAnnuels[$memoDebut] = $memoInteret;
+    if ($i==$memoPosition) {
+        $memoDebut++;
+        $memoPosition += 12;
+        $memoInteret = 0;
+    }
 }
+$totalRevenuAnnuelImposition = $revenuMoisSansCharge * 12;
+foreach ($interetsAnnuels as $key => $interet) {
+    $impotPayer = ($totalRevenuAnnuelImposition - $interet) * 0.7 * 0.11;
+    $tableauImpotPayer[$key] = $impotPayer;
+}
+$moyenneImpotApayer = array_sum($tableauImpotPayer) / count($interetsAnnuels);
 
+// Calcul rendement net net
+$totalDepenseAvecImpot = $totalDepense + $moyenneImpotApayer;
+$cashflowYearsAvecImpot = round(($totalRevenuAnnuel - $totalDepenseAvecImpot), 2);
+$rendementNetNetAnnuel = ($cashflowYearsAvecImpot * 100) / $totalAchat;
 
 

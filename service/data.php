@@ -19,6 +19,8 @@ $mensualite = 0;
 $mensualiteMois = 0;
 $rendementBrut = 0;
 $rendementNet = 0;
+$tauxImposition = 0;
+//$interetsAnnuels = 0;
 
 $achat = $_POST['achat'];
 $notaire = $_POST["notaire"];
@@ -35,13 +37,7 @@ $occupation = $_POST['occupation'];
 $chargeLocative = $_POST['charge_locative'];
 $taux = $_POST['taux'];
 $mensualite = $_POST['mensualite'];
+$tauxImposition = (int) $_POST['pourcentage_imposition'];
 
 $revenuAnnuel = $_POST['revenu_annuel'];
 
-$tauxImposition = [
-    0 => [0, 10064 ],
-    11 => [10065, 25659],
-    30 => [25660, 73369],
-    41 => [73370, 157806],
-    45 => [157807]
-];

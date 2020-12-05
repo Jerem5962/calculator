@@ -63,7 +63,7 @@ for ($i=1; $i <= $mensualite*12; $i++){
 }
 $totalRevenuAnnuelImposition = $revenuMoisSansCharge * 12;
 foreach ($interetsAnnuels as $key => $interet) {
-    $impotPayer = ($totalRevenuAnnuelImposition - $interet) * 0.7 * 0.11;
+    $impotPayer = ($totalRevenuAnnuelImposition - $interet) * 0.7 * ($tauxImposition /100);
     $tableauImpotPayer[$key] = $impotPayer;
 }
 $moyenneImpotApayer = array_sum($tableauImpotPayer) / count($interetsAnnuels);

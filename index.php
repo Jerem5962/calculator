@@ -159,7 +159,7 @@ include "service/calculator.php";
                                 </select>
                             </div>
                             <div class="panel_prix">
-                                <label for="moyenne_impot_input">Moyenne impôt Annuel</label>
+                                <label for="moyenne_impot_input">Impôt moyen Annuel</label>
                                 <input type="number" value="<?= round($moyenneImpotApayer, 2)  ?>" name="moyenne_impot_input" id="moyenne_impot_input" disabled>
                             </div>
                         </div>
@@ -170,6 +170,9 @@ include "service/calculator.php";
                             <p class="prix">
                                 <?= round($mensualiteMois, 2) ?> €/m
                             </p>
+                            <h3 class="title_prix">
+                                Impôt
+                            </h3>
                             <p class="prix">
                                 <?= round($moyenneImpotApayer, 2) ?> €/A
                             </p>
@@ -280,7 +283,7 @@ include "service/calculator.php";
                     <th>Intérêts</th>
                     <th>A déclarer <br>
                         (abt 30%)</th>
-                    <th>Imposition
+                    <th>Impôt
                     </th>
 
                 </tr>

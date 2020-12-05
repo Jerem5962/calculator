@@ -37,7 +37,7 @@ $occupation = $_POST['occupation'];
 $chargeLocative = $_POST['charge_locative'];
 $taux = $_POST['taux'];
 $mensualite = $_POST['mensualite'];
-$tauxImposition = (int) $_POST['pourcentage_imposition'];
+$tauxImposition = (int)$_POST['pourcentage_imposition'];
 
 $revenuAnnuel = $_POST['revenu_annuel'];
 

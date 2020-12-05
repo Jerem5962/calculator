@@ -188,6 +188,8 @@ include "service/calculator.php";
                     <div class="descriptif">
                         <p>revenu net/an <span><?= round($cashflowYears, 2) ?> €</span> </p>
                         <p>revenu net/mois <span><?= round($cashflowMois, 2) ?> €</span></p>
+                        <p>revenu net-net/an <span><?= round($cashflowYearsAvecImpot, 2) ?> €</span></p>
+                        <p>revenu net-net/mois <span><?= round($cashflowMoisAvecImpot, 2) ?> €</span></p>
                     </div>
                 </section>
             </div>

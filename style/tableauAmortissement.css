@@ -5,6 +5,7 @@
 
 .impots {
     width: 40%;
+    height: max-content;
     margin: 30px auto;
     background-color: rgb(187, 187, 119, 0.7);
 }
@@ -27,6 +28,7 @@
 
 .amortissement {
     width: 40%;
+    height: max-content;
     margin: 30px auto;
     background-color: rgb(187, 187, 119, 0.7);
 }

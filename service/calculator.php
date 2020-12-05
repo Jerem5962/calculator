@@ -71,6 +71,7 @@ $moyenneImpotApayer = array_sum($tableauImpotPayer) / count($interetsAnnuels);
 // Calcul rendement net net
 $totalDepenseAvecImpot = $totalDepense + $moyenneImpotApayer;
 $cashflowYearsAvecImpot = round(($totalRevenuAnnuel - $totalDepenseAvecImpot), 2);
+$cashflowMoisAvecImpot = $cashflowYearsAvecImpot / 12;
 $rendementNetNetAnnuel = ($cashflowYearsAvecImpot * 100) / $totalAchat;
 
 
